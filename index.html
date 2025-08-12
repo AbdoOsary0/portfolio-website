@@ -1,0 +1,472 @@
+<!-- PROJECT STRUCTURE:
+portfolio-website/
+├── index.html
+├── css/
+│   └── styles.css
+├── js/
+│   └── script.js
+├── assets/
+│   └── images/
+├── README.md
+├── .gitignore
+└── LICENSE
+-->
+
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Abdelrahman Mohammed - Full-Stack Developer Portfolio. Computer Science student specializing in web and mobile development."
+    />
+    <meta
+      name="keywords"
+      content="Full-Stack Developer, React, Node.js, Laravel, Mobile Development, Computer Science"
+    />
+    <meta name="author" content="Abdelrahman Mohammed" />
+    <title>Abdelrahman Mohammed - Full-Stack Developer</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <div class="nav-container">
+        <div class="logo">AM</div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#achievements">Achievements</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="mobile-menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="floating-element"></div>
+      <div class="floating-element"></div>
+      <div class="floating-element"></div>
+
+      <div class="hero-content">
+        <h1>Abdelrahman Mohammed</h1>
+        <p>
+          Computer Science student with expertise in full-stack development and
+          mobile applications. Skilled in building scalable systems with clean
+          architecture using modern technologies like React.js, Node.js,
+          Laravel, and React Native.
+        </p>
+        <a href="#projects" class="cta-button">View My Projects</a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="animate-on-scroll">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>
+            I am a Computer Science graduate with a strong foundation in
+            software engineering and problem-solving.
+            <span style="color: var(--primary); font-weight: 600">
+              enterprise-level full-stack development and mobile application
+              engineering</span
+            >. My technical proficiency spans industry-standard frameworks and
+            cutting-edge technologies including
+            <span style="color: var(--secondary); font-weight: 500">
+              React.js, Node.js, Laravel, and React Native</span
+            >, supported by comprehensive expertise in advanced algorithms,
+            database optimization, and system architecture design.
+          </p>
+          <br />
+          <p>
+            My engineering approach emphasizes
+            <span style="color: var(--primary); font-weight: 600">
+              scalable, high-performance systems</span
+            >
+            with robust architectural foundations. I excel at translating
+            complex business requirements into efficient technical solutions
+            through strategic problem-solving methodologies and best-practice
+            implementation. My professional commitment centers on continuous
+            technological advancement and mastery of emerging development
+            paradigms to deliver exceptional software products.
+          </p>
+        </div>
+
+        <div class="about-bottom-section">
+          <div class="education-card">
+            <h4>Bachelor of Science in Computer Science</h4>
+            <div class="university">Faculty of Science, Cairo University</div>
+            <div class="grade">
+              Academic Standing: Excellent (Honors) | Sep 2021 – Jul 2025
+            </div>
+          </div>
+          <br />
+          <div class="about-image">
+            <div class="about-image-content">
+              <h3 style="color: var(--primary); margin-bottom: 1rem">
+                Software Engineering Professional
+              </h3>
+              <p style="color: var(--gray)">
+                Architecting enterprise solutions with precision and innovation
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="animate-on-scroll">
+      <h2 class="section-title">Skills & Technologies</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Programming Languages</h3>
+          <div class="skill-list">
+            <span class="skill-tag">JavaScript (ES6+)</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">PHP</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">PL/SQL</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Frontend Technologies</h3>
+          <div class="skill-list">
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+            <span class="skill-tag">React.js</span>
+            <span class="skill-tag">Vue.js</span>
+            <span class="skill-tag">React Native</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Backend & Frameworks</h3>
+          <div class="skill-list">
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">Express.js</span>
+            <span class="skill-tag">Laravel</span>
+            <span class="skill-tag">RESTful APIs</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Databases & Tools</h3>
+          <div class="skill-list">
+            <span class="skill-tag">MongoDB</span>
+            <span class="skill-tag">MySQL</span>
+            <span class="skill-tag">Firebase</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">GitHub</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Core Concepts</h3>
+          <div class="skill-list">
+            <span class="skill-tag">OOP</span>
+            <span class="skill-tag">Data Structures</span>
+            <span class="skill-tag">Algorithms</span>
+            <span class="skill-tag">Database Design</span>
+            <span class="skill-tag">System Architecture</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="animate-on-scroll">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image">🎓</div>
+          <div class="project-content">
+            <h3>EWMA-EGMS Academic Platform</h3>
+            <p>
+              Comprehensive academic project management system for students and
+              mentors featuring role-based dashboards, real-time notifications,
+              chat support, and anomaly detection using EWMA algorithm.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">Laravel</span>
+              <span class="tech-tag">MySQL</span>
+              <span class="tech-tag">Vue.js</span>
+              <span class="tech-tag">EWMA Algorithm</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://ewma-egms.com/"
+                target="_blank"
+                class="project-link"
+              >
+                Live Demo
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">🚗</div>
+          <div class="project-content">
+            <h3>Car Booking Web Application</h3>
+            <p>
+              Full-stack car reservation system with secure authentication,
+              admin dashboard for managing cars, users, and booking history.
+              Features availability calendar and dynamic booking system.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">React.js</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">Express.js</span>
+              <span class="tech-tag">MongoDB</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://github.com/AbdoOsary0/Web-Project"
+                target="_blank"
+                class="project-link"
+              >
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">🛍️</div>
+          <div class="project-content">
+            <h3>E-Commerce Mobile App</h3>
+            <p>
+              Cross-platform mobile application for browsing and buying fashion
+              products. Features Firebase authentication, real-time database
+              sync, cart system with order tracking, and optimized Android
+              performance.
+            </p>
+            <div class="project-tech">
+              <span class="tech-tag">React Native</span>
+              <span class="tech-tag">Firebase Auth</span>
+              <span class="tech-tag">Firebase Realtime DB</span>
+              <span class="tech-tag">Android</span>
+            </div>
+            <div class="project-links">
+              <a
+                href="https://github.com/AbdoOsary0/FashionStore"
+                target="_blank"
+                class="project-link"
+              >
+                GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="animate-on-scroll">
+      <h2 class="section-title">Achievements & Activities</h2>
+      <div class="achievements-grid">
+        <div class="achievement-card">
+          <h3>Software Engineer - Tech Talent Program</h3>
+          <p style="color: var(--gray)">
+            Joined the Tech Talent program as a software engineer to develop
+            real-world web and mobile applications for the Faculty of Science
+            community. Worked with a student-led team using modern frameworks
+            and agile practices to deliver internal tools and digital services.
+          </p>
+        </div>
+
+        <div class="achievement-card">
+          <h3>ECPC Team Member</h3>
+          <p style="color: var(--gray)">
+            Participated in the Egyptian Collegiate Programming Contest (ECPC)
+            as a team member, focusing on solving algorithmic problems under
+            time constraints and competing at the national level.
+          </p>
+        </div>
+
+        <div class="achievement-card">
+          <h3>Academic Excellence</h3>
+          <p style="color: var(--gray)">
+            Maintaining excellent academic performance with Honors grade
+            throughout my Computer Science degree at Cairo University while
+            actively participating in programming competitions and technical
+            projects.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section animate-on-scroll">
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-subtitle">
+        Let's discuss how we can collaborate to bring your next project to life.
+        I'm always excited to explore new opportunities and challenges.
+      </p>
+
+      <div class="contact-container">
+        <!-- Contact Information -->
+        <div class="contact-info-section">
+          <div class="response-badge">Typically responds within 24 hours</div>
+
+          <h3 class="contact-info-title">Let's Start a Conversation</h3>
+          <p class="contact-info-text">
+            Whether you have a project in mind, need technical consultation, or
+            just want to connect, I'm here to help. Reach out through any of the
+            channels below.
+          </p>
+
+          <div class="contact-methods">
+            <div class="contact-method">
+              <div class="contact-icon">📧</div>
+              <div class="contact-details">
+                <h4>Email</h4>
+                <a href="mailto:AbdelrahmanMoahmmed27@gmail.com">
+                  AbdelrahmanMoahmmed27@gmail.com
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-method">
+              <div class="contact-icon">📱</div>
+              <div class="contact-details">
+                <h4>Phone</h4>
+                <a href="tel:+201123022449">+20 112-302-2449</a>
+              </div>
+            </div>
+
+            <div class="contact-method">
+              <div class="contact-icon">📍</div>
+              <div class="contact-details">
+                <h4>Location</h4>
+                <span>Cairo, Egypt</span>
+              </div>
+            </div>
+
+            <div class="contact-method">
+              <div class="contact-icon">⏰</div>
+              <div class="contact-details">
+                <h4>Availability</h4>
+                <span>Monday - Friday, 9 AM - 6 PM (GMT+2)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-section">
+          <h3 class="form-title">Send a Message</h3>
+          <p class="form-subtitle">
+            Fill out the form below and I'll get back to you as soon as
+            possible.
+          </p>
+
+          <form class="contact-form" action="#" method="POST">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name *</label>
+                <input type="text" id="firstName" name="firstName" required />
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name *</label>
+                <input type="text" id="lastName" name="lastName" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="company">Company/Organization</label>
+              <input type="text" id="company" name="company" />
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Project Type</label>
+              <select id="subject" name="subject">
+                <option value="">Select a project type</option>
+                <option value="web-development">Web Development</option>
+                <option value="mobile-app">Mobile App Development</option>
+                <option value="consulting">Technical Consulting</option>
+                <option value="collaboration">Partnership/Collaboration</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Project Details *</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Please describe your project, timeline, budget range, and any specific requirements..."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="submit-button">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="social-links">
+        <a
+          href="https://github.com/AbdoOsary0"
+          target="_blank"
+          class="social-link"
+        >
+          GitHub
+        </a>
+        <a
+          href="https://www.linkedin.com/in/abdelrahman-mohammed-205281271"
+          class="social-link"
+          target="_blank"
+        >
+          LinkedIn
+        </a>
+        <a href="mailto:AbdelrahmanMoahmmed27@gmail.com" class="social-link">
+          Email
+        </a>
+        <a href="tel:+201123022449" class="social-link">Phone</a>
+      </div>
+      <p style="color: var(--gray)">
+        © 2025 Abdelrahman Mohammed. Built with passion and clean code.
+      </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
