@@ -181,7 +181,54 @@ nav {
   transform: translateY(-2px);
   box-shadow: var(--glow);
 }
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
 
+.hero-image-container {
+  width: 400px;
+  height: 400px;
+  background: var(--gradient);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: float 6s ease-in-out infinite;
+}
+
+.hero-image-container::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: rotate 4s linear infinite;
+}
+
+.profile-placeholder {
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
 /* ===== FLOATING ELEMENTS ===== */
 .floating-element {
   position: absolute;
@@ -795,8 +842,18 @@ footer {
 @media (max-width: 768px) {
   .nav-links {
     display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: var(--dark-light);
+    width: 200px;
+    padding: 1rem;
+    border: 1px solid rgba(99, 102, 241, 0.2);
   }
-
+  .nav-links.active {
+    display: flex;
+  }
   .mobile-menu-toggle {
     display: flex;
   }
@@ -844,15 +901,62 @@ footer {
 }
 
 @media (max-width: 480px) {
+  .nav-container {
+    padding: 1rem;
+  }
+
+  .hero {
+    padding: 1rem;
+    gap: 2rem;
+  }
+
   .hero-content h1 {
     font-size: 2rem;
   }
 
   .hero-content p {
-    font-size: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .hero-image-container {
+    width: 200px;
+    height: 200px;
   }
 
   .section-title {
     font-size: 2rem;
+  }
+
+  .skill-card,
+  .project-card,
+  .achievement-card {
+    padding: 1.5rem;
+  }
+
+  .contact-info-section,
+  .contact-form-section {
+    padding: 1.5rem;
+  }
+
+  .about-text {
+    font-size: 1rem;
+  }
+
+  .project-content {
+    padding: 1.5rem;
+  }
+}
+@media (max-width: 320px) {
+  .hero-image-container {
+    width: 180px;
+    height: 180px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem;
   }
 }
