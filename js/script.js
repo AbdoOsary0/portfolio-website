@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const contactForm = document.querySelector(".contact-form");
 
   if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
+    contactForm.addEventListener("submit", async function (e) {
       e.preventDefault();
 
       const submitButton = this.querySelector(".submit-button");
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       if (!isValid) {
-        alert("Please fill in all required fields");
+        showNotification("Please fill in all required fields", "error");
         return;
       }
 
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const emailField = this.querySelector('input[type="email"]');
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(emailField.value)) {
-        alert("Please enter a valid email address");
+        showNotification("Please enter a valid email address", "error");
         emailField.style.borderColor = "#ef4444";
         return;
       }
@@ -90,29 +90,42 @@ document.addEventListener("DOMContentLoaded", function () {
       submitButton.disabled = true;
       submitButton.style.opacity = "0.7";
 
-      // Simulate form submission (replace with actual form handling)
-      setTimeout(() => {
-        submitButton.textContent = "Message Sent!";
-        submitButton.style.background =
-          "linear-gradient(135deg, #22c55e 0%, #16a34a 100%)";
+      try {
+        const response = await fetch(contactForm.action, {
+          method: contactForm.method,
+          body: new FormData(contactForm),
+          headers: { Accept: "application/json" },
+        });
 
-        // Reset form
-        this.reset();
+        if (response.ok) {
+          // Success
+          submitButton.textContent = "Message Sent!";
+          submitButton.style.background =
+            "linear-gradient(135deg, #22c55e 0%, #16a34a 100%)";
 
-        // Show success message
-        showNotification(
-          "Thank you for reaching out! I'll get back to you soon.",
-          "success"
-        );
+          this.reset();
+          showNotification(
+            "Thank you for reaching out! I'll get back to you soon.",
+            "success"
+          );
 
-        // Reset button after 3 seconds
-        setTimeout(() => {
-          submitButton.textContent = originalText;
-          submitButton.disabled = false;
-          submitButton.style.opacity = "1";
-          submitButton.style.background = "var(--gradient)";
-        }, 3000);
-      }, 1500);
+          setTimeout(() => {
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
+            submitButton.style.opacity = "1";
+            submitButton.style.background = "var(--gradient)";
+          }, 3000);
+        } else {
+          throw new Error("Formspree error");
+        }
+      } catch (error) {
+        console.error(error);
+        showNotification("Failed to send message. Please try again.", "error");
+
+        submitButton.textContent = originalText;
+        submitButton.disabled = false;
+        submitButton.style.opacity = "1";
+      }
     });
   }
 });

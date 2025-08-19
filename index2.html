@@ -3,8 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Abdelrahman Mohammed - Full-Stack Developer Portfolio. Computer Science student specializing in web and mobile development."
+    />
+    <meta
+      name="keywords"
+      content="Full-Stack Developer, React, Node.js, Laravel, Mobile Development, Computer Science"
+    />
+    <meta name="author" content="Abdelrahman Mohammed" />
     <title>Abdelrahman Mohammed - Full-Stack Developer</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
+      /* ===== PORTFOLIO STYLES ===== */
+
       * {
         margin: 0;
         padding: 0;
@@ -32,7 +53,7 @@
         overflow-x: hidden;
       }
 
-      /* Navigation */
+      /* ===== NAVIGATION ===== */
       nav {
         position: fixed;
         top: 0;
@@ -90,29 +111,51 @@
         width: 100%;
       }
 
-      /* Hero Section */
+      .mobile-menu-toggle {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 4px;
+      }
+
+      .mobile-menu-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--white);
+        transition: 0.3s;
+      }
+
+      /* ===== HERO SECTION WITH IMAGE ===== */
       .hero {
-        height: 100vh;
-        display: flex;
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         align-items: center;
-        justify-content: center;
-        text-align: center;
+        gap: 4rem;
+        padding: 2rem 4rem;
+        max-width: 1400px;
+        margin: 0 auto;
         position: relative;
         background: radial-gradient(
-          circle at 50% 50%,
-          rgba(99, 102, 241, 0.1) 0%,
+          circle at 30% 40%,
+          rgba(99, 102, 241, 0.15) 0%,
           transparent 50%
         );
       }
 
+      .hero-content {
+        z-index: 2;
+      }
+
       .hero-content h1 {
-        font-size: 4rem;
-        margin-bottom: 1rem;
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 1.5rem;
         background: var(--gradient);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
         animation: glow 2s ease-in-out infinite alternate;
+        line-height: 1.2;
       }
 
       @keyframes glow {
@@ -125,21 +168,20 @@
       }
 
       .hero-content p {
-        font-size: 1.2rem;
+        font-size: clamp(1rem, 2vw, 1.2rem);
         color: var(--gray);
-        margin-bottom: 2rem;
-        max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
+        margin-bottom: 2.5rem;
+        line-height: 1.7;
       }
 
       .cta-button {
         background: var(--gradient);
         color: var(--white);
-        padding: 1rem 2rem;
+        padding: 1.2rem 2.5rem;
         border: none;
         border-radius: 50px;
         font-size: 1.1rem;
+        font-weight: 600;
         cursor: pointer;
         transition: all 0.3s ease;
         text-decoration: none;
@@ -173,7 +215,85 @@
         box-shadow: var(--glow);
       }
 
-      /* Floating Elements */
+      /* ===== HERO IMAGE SECTION ===== */
+      .hero-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-image-container {
+        width: 400px;
+        height: 400px;
+        background: var(--gradient);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .hero-image-container::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: conic-gradient(
+          from 0deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        animation: rotate 4s linear infinite;
+      }
+
+      .profile-placeholder {
+        width: 90%;
+        height: 90%;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 2;
+        overflow: hidden;
+        background: var(--dark);
+      }
+
+      .profile-placeholder img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(180deg);
+        }
+      }
+
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* ===== FLOATING ELEMENTS ===== */
       .floating-element {
         position: absolute;
         width: 60px;
@@ -200,17 +320,7 @@
         animation-delay: -5s;
       }
 
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0px) rotate(0deg);
-        }
-        50% {
-          transform: translateY(-20px) rotate(180deg);
-        }
-      }
-
-      /* Section Styles */
+      /* ===== SECTION STYLES ===== */
       section {
         padding: 5rem 2rem;
         max-width: 1200px;
@@ -219,7 +329,7 @@
 
       .section-title {
         text-align: center;
-        font-size: 3rem;
+        font-size: clamp(2rem, 4vw, 3rem);
         margin-bottom: 3rem;
         background: var(--gradient);
         -webkit-background-clip: text;
@@ -227,7 +337,7 @@
         background-clip: text;
       }
 
-      /* About Section */
+      /* ===== ABOUT SECTION ===== */
       .about-content {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -239,6 +349,11 @@
         font-size: 1.1rem;
         color: var(--gray);
         line-height: 1.8;
+      }
+
+      .about-bottom-section {
+        grid-column: 1 / -1;
+        margin-top: 3rem;
       }
 
       .about-image {
@@ -294,10 +409,10 @@
         font-size: 0.9rem;
       }
 
-      /* Skills Section */
+      /* ===== SKILLS SECTION ===== */
       .skills-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 2rem;
         margin-top: 3rem;
       }
@@ -359,10 +474,10 @@
         border: 1px solid rgba(99, 102, 241, 0.3);
       }
 
-      /* Projects Section */
+      /* ===== PROJECTS SECTION ===== */
       .projects-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         gap: 2rem;
         margin-top: 3rem;
       }
@@ -439,10 +554,10 @@
         color: var(--secondary);
       }
 
-      /* Achievements Section */
+      /* ===== ACHIEVEMENTS SECTION ===== */
       .achievements-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 2rem;
         margin-top: 3rem;
       }
@@ -467,204 +582,11 @@
         font-size: 1.2rem;
       }
 
-      /* Contact Section */
-      .contact-content {
-        text-align: center;
-        max-width: 600px;
-        margin: 0 auto;
-      }
-
-      .contact-info {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-        margin-bottom: 3rem;
-      }
-
-      .contact-item {
-        background: var(--dark-light);
-        padding: 1.5rem;
-        border-radius: 15px;
-        border: 1px solid rgba(99, 102, 241, 0.2);
-        text-align: center;
-      }
-
-      .contact-item h4 {
-        color: var(--primary);
-        margin-bottom: 0.5rem;
-      }
-
-      .contact-item a {
-        color: var(--white);
-        text-decoration: none;
-        transition: color 0.3s ease;
-      }
-
-      .contact-item a:hover {
-        color: var(--primary);
-      }
-
-      .contact-form {
-        display: grid;
-        gap: 1.5rem;
-        margin-top: 2rem;
-      }
-
-      .form-group {
-        display: grid;
-        gap: 0.5rem;
-      }
-
-      .form-group label {
-        color: var(--primary);
-        font-weight: 500;
-        text-align: left;
-      }
-
-      .form-group input,
-      .form-group textarea {
-        background: var(--dark-light);
-        border: 1px solid rgba(99, 102, 241, 0.3);
-        border-radius: 10px;
-        padding: 1rem;
-        color: var(--white);
-        font-family: inherit;
-        transition: all 0.3s ease;
-      }
-
-      .form-group input:focus,
-      .form-group textarea:focus {
-        outline: none;
-        border-color: var(--primary);
-        box-shadow: 0 0 10px rgba(99, 102, 241, 0.3);
-      }
-
-      .form-group textarea {
-        resize: vertical;
-        min-height: 120px;
-      }
-
-      /* Footer */
-      footer {
-        background: var(--dark-light);
-        padding: 2rem;
-        text-align: center;
-        border-top: 1px solid rgba(99, 102, 241, 0.2);
-      }
-
-      .social-links {
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        margin-bottom: 1rem;
-      }
-
-      .social-link {
-        color: var(--gray);
-        font-size: 1.5rem;
-        transition: all 0.3s ease;
-        text-decoration: none;
-      }
-
-      .social-link:hover {
-        color: var(--primary);
-        transform: translateY(-2px);
-      }
-
-      /* Responsive Design */
-      @media (max-width: 768px) {
-        .nav-links {
-          display: none;
-        }
-
-        .hero-content h1 {
-          font-size: 2.5rem;
-        }
-
-        .about-content {
-          grid-template-columns: 1fr;
-          text-align: center;
-        }
-
-        .skills-grid,
-        .projects-grid,
-        .achievements-grid {
-          grid-template-columns: 1fr;
-        }
-
-        section {
-          padding: 3rem 1rem;
-        }
-
-        .contact-info {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      /* Scroll animations */
-      .animate-on-scroll {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.6s ease;
-      }
-
-      .animate-on-scroll.animated {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      :root {
-        --primary: #6366f1;
-        --primary-dark: #4f46e5;
-        --secondary: #ec4899;
-        --dark: #0f172a;
-        --dark-light: #1e293b;
-        --gray: #64748b;
-        --light: #f8fafc;
-        --white: #ffffff;
-        --gradient: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
-        --glow: 0 0 30px rgba(99, 102, 241, 0.3);
-      }
-
-      body {
-        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-        background: var(--dark);
-        color: var(--white);
-        line-height: 1.6;
-        overflow-x: hidden;
-        padding: 2rem 0;
-      }
-
-      /* Professional Contact Section */
+      /* ===== CONTACT SECTION ===== */
       .contact-section {
         padding: 5rem 2rem;
         max-width: 1200px;
         margin: 0 auto;
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.6s ease;
-      }
-
-      .contact-section.animated {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      .section-title {
-        text-align: center;
-        font-size: 3rem;
-        margin-bottom: 1.5rem;
-        background: var(--gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        font-weight: 700;
       }
 
       .section-subtitle {
@@ -936,11 +858,146 @@
         }
       }
 
-      /* Responsive Design */
-      @media (max-width: 768px) {
+      /* ===== FOOTER ===== */
+      footer {
+        background: var(--dark-light);
+        padding: 2rem;
+        text-align: center;
+        border-top: 1px solid rgba(99, 102, 241, 0.2);
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .social-link {
+        color: var(--gray);
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        padding: 0.5rem;
+      }
+
+      .social-link:hover {
+        color: var(--primary);
+        transform: translateY(-2px);
+      }
+
+      /* ===== SCROLL ANIMATIONS ===== */
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease;
+      }
+
+      .animate-on-scroll.animated {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ===== IMPROVED RESPONSIVE DESIGN ===== */
+
+      /* Large Desktop */
+      @media (min-width: 1400px) {
+        .hero {
+          padding: 2rem 6rem;
+          gap: 6rem;
+        }
+
+        .hero-image-container {
+          width: 450px;
+          height: 450px;
+        }
+      }
+
+      /* Desktop */
+      @media (max-width: 1200px) {
+        .hero {
+          padding: 2rem 3rem;
+          gap: 3rem;
+        }
+
+        .hero-image-container {
+          width: 350px;
+          height: 350px;
+        }
+      }
+
+      /* Tablet */
+      @media (max-width: 968px) {
+        .hero {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+          padding: 2rem;
+          text-align: center;
+        }
+
+        .hero-image {
+          order: -1;
+        }
+
+        .hero-image-container {
+          width: 300px;
+          height: 300px;
+        }
+
+        .about-content {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+          text-align: center;
+        }
+
         .contact-container {
           grid-template-columns: 1fr;
           gap: 2rem;
+        }
+
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: 100%;
+          right: 0;
+          background: var(--dark-light);
+          width: 250px;
+          padding: 1rem;
+          border: 1px solid rgba(99, 102, 241, 0.2);
+          border-radius: 0 0 15px 15px;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .mobile-menu-toggle {
+          display: flex;
+        }
+      }
+
+      /* Mobile */
+      @media (max-width: 768px) {
+        .nav-container {
+          padding: 1rem;
+        }
+
+        .hero {
+          padding: 1rem;
+          min-height: 90vh;
+        }
+
+        .hero-image-container {
+          width: 250px;
+          height: 250px;
+        }
+
+        .skills-grid,
+        .projects-grid,
+        .achievements-grid {
+          grid-template-columns: 1fr;
         }
 
         .form-row {
@@ -952,28 +1009,137 @@
           padding: 2rem;
         }
 
-        .section-title {
-          font-size: 2.5rem;
+        .social-links {
+          gap: 1rem;
         }
 
-        .contact-section {
+        section {
           padding: 3rem 1rem;
         }
       }
 
-      /* Smooth scrolling animation trigger */
-      .contact-section {
-        animation: fadeInUp 0.8s ease-out forwards;
+      /* Small Mobile */
+      @media (max-width: 480px) {
+        .hero-image-container {
+          width: 200px;
+          height: 200px;
+        }
+
+        .hero-content p {
+          font-size: 1rem;
+        }
+
+        .cta-button {
+          padding: 1rem 2rem;
+          font-size: 1rem;
+        }
+
+        .skill-card,
+        .project-card,
+        .achievement-card,
+        .contact-info-section,
+        .contact-form-section {
+          padding: 1.5rem;
+        }
+
+        .floating-element {
+          width: 40px;
+          height: 40px;
+        }
+
+        .contact-method {
+          flex-direction: column;
+          text-align: center;
+          gap: 0.5rem;
+        }
+
+        .contact-icon {
+          width: 40px;
+          height: 40px;
+        }
       }
 
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
+      /* Extra Small Mobile */
+      @media (max-width: 360px) {
+        .hero {
+          padding: 1rem 0.5rem;
         }
-        to {
-          opacity: 1;
-          transform: translateY(0);
+
+        .hero-image-container {
+          width: 180px;
+          height: 180px;
+        }
+
+        .nav-container {
+          padding: 0.5rem;
+        }
+
+        .section-title {
+          font-size: 1.8rem;
+        }
+
+        .contact-methods {
+          gap: 1rem;
+        }
+      }
+
+      /* Landscape Mobile */
+      @media (max-height: 500px) and (orientation: landscape) {
+        .hero {
+          min-height: 100vh;
+          padding: 1rem 2rem;
+        }
+
+        .hero-image-container {
+          width: 200px;
+          height: 200px;
+        }
+
+        .nav-container {
+          padding: 0.5rem 2rem;
+        }
+      }
+
+      /* High DPI Displays */
+      @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+        .hero-image-container::before {
+          animation: rotate 3s linear infinite;
+        }
+      }
+
+      /* Reduced Motion */
+      @media (prefers-reduced-motion: reduce) {
+        .hero-content h1,
+        .floating-element,
+        .hero-image-container,
+        .hero-image-container::before {
+          animation: none;
+        }
+
+        .cta-button:hover,
+        .skill-card:hover,
+        .project-card:hover,
+        .achievement-card:hover {
+          transform: none;
+        }
+      }
+
+      /* Print Styles */
+      @media print {
+        .floating-element,
+        .mobile-menu-toggle,
+        nav {
+          display: none;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+          padding: 1rem;
+        }
+
+        body {
+          color: #000;
+          background: #fff;
         }
       }
     </style>
@@ -991,6 +1157,11 @@
           <li><a href="#achievements">Achievements</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
+        <div class="mobile-menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
     </nav>
 
@@ -1010,6 +1181,32 @@
         </p>
         <a href="#projects" class="cta-button">View My Projects</a>
       </div>
+
+      <div class="hero-image">
+        <div class="hero-image-container">
+          <div class="profile-placeholder">
+            <!-- Replace this src with your actual image path -->
+            <img
+              src="images/Me.jpg"
+              alt="Abdelrahman Mohammed"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            />
+            <div
+              style="
+                display: none;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+                font-size: 4rem;
+                color: var(--primary);
+              "
+            >
+              👨‍💻
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- About Section -->
@@ -1020,21 +1217,21 @@
           <p>
             I am a Computer Science graduate with a strong foundation in
             software engineering and problem-solving.
-            <span style="color: var(--primary); font-weight: 600"
-              >enterprise-level full-stack development and mobile application
+            <span style="color: var(--primary); font-weight: 600">
+              enterprise-level full-stack development and mobile application
               engineering</span
             >. My technical proficiency spans industry-standard frameworks and
             cutting-edge technologies including
-            <span style="color: var(--secondary); font-weight: 500"
-              >React.js, Node.js, Laravel, and React Native</span
+            <span style="color: var(--secondary); font-weight: 500">
+              React.js, Node.js, Laravel, and React Native</span
             >, supported by comprehensive expertise in advanced algorithms,
             database optimization, and system architecture design.
           </p>
           <br />
           <p>
             My engineering approach emphasizes
-            <span style="color: var(--primary); font-weight: 600"
-              >scalable, high-performance systems</span
+            <span style="color: var(--primary); font-weight: 600">
+              scalable, high-performance systems</span
             >
             with robust architectural foundations. I excel at translating
             complex business requirements into efficient technical solutions
@@ -1045,23 +1242,23 @@
           </p>
         </div>
 
+        <div class="about-image">
+          <div class="about-image-content">
+            <h3 style="color: var(--primary); margin-bottom: 1rem">
+              Software Engineering Professional
+            </h3>
+            <p style="color: var(--gray)">
+              Architecting enterprise solutions with precision and innovation
+            </p>
+          </div>
+        </div>
+
         <div class="about-bottom-section">
           <div class="education-card">
             <h4>Bachelor of Science in Computer Science</h4>
             <div class="university">Faculty of Science, Cairo University</div>
             <div class="grade">
               Academic Standing: Excellent (Honors) | Sep 2021 – Jul 2025
-            </div>
-          </div>
-          <br />
-          <div class="about-image">
-            <div class="about-image-content">
-              <h3 style="color: var(--primary); margin-bottom: 1rem">
-                Software Engineering Professional
-              </h3>
-              <p style="color: var(--gray)">
-                Architecting enterprise solutions with precision and innovation
-              </p>
             </div>
           </div>
         </div>
@@ -1127,7 +1324,7 @@
 
     <!-- Projects Section -->
     <section id="projects" class="animate-on-scroll">
-      <h2 class="section-title">Some Projects</h2>
+      <h2 class="section-title">Featured Projects</h2>
       <div class="projects-grid">
         <div class="project-card">
           <div class="project-image">🎓</div>
@@ -1149,8 +1346,9 @@
                 href="https://ewma-egms.com/"
                 target="_blank"
                 class="project-link"
-                >Live Demo</a
               >
+                Live Demo
+              </a>
             </div>
           </div>
         </div>
@@ -1175,8 +1373,9 @@
                 href="https://github.com/AbdoOsary0/Web-Project"
                 target="_blank"
                 class="project-link"
-                >GitHub</a
               >
+                GitHub
+              </a>
             </div>
           </div>
         </div>
@@ -1198,13 +1397,13 @@
               <span class="tech-tag">Android</span>
             </div>
             <div class="project-links">
-              <!-- <a href="#" class="project-link">Live Demo</a> -->
               <a
                 href="https://github.com/AbdoOsary0/FashionStore"
                 target="_blank"
                 class="project-link"
-                >GitHub</a
               >
+                GitHub
+              </a>
             </div>
           </div>
         </div>
@@ -1247,7 +1446,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact-section">
+    <section id="contact" class="contact-section animate-on-scroll">
       <h2 class="section-title">Get In Touch</h2>
       <p class="section-subtitle">
         Let's discuss how we can collaborate to bring your next project to life.
@@ -1311,7 +1510,11 @@
             possible.
           </p>
 
-          <form class="contact-form" action="#" method="POST">
+          <form
+            class="contact-form"
+            action="https://formspree.io/f/xgvzjalw"
+            method="POST"
+          >
             <div class="form-row">
               <div class="form-group">
                 <label for="firstName">First Name *</label>
@@ -1374,17 +1577,19 @@
           href="https://github.com/AbdoOsary0"
           target="_blank"
           class="social-link"
-          >GitHub</a
         >
+          GitHub
+        </a>
         <a
-          href="www.linkedin.com/in/abdelrahman-mohammed-205281271"
+          href="https://www.linkedin.com/in/abdelrahman-mohammed-205281271"
           class="social-link"
           target="_blank"
-          >LinkedIn</a
         >
-        <a href="mailto:AbdelrahmanMoahmmed27@gmail.com" class="social-link"
-          >Email</a
-        >
+          LinkedIn
+        </a>
+        <a href="mailto:AbdelrahmanMoahmmed27@gmail.com" class="social-link">
+          Email
+        </a>
         <a href="tel:+201123022449" class="social-link">Phone</a>
       </div>
       <p style="color: var(--gray)">
@@ -1393,7 +1598,9 @@
     </footer>
 
     <script>
-      // Smooth scrolling for navigation links
+      // ===== PORTFOLIO JAVASCRIPT =====
+
+      // ===== SMOOTH SCROLLING =====
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
           e.preventDefault();
@@ -1407,17 +1614,19 @@
         });
       });
 
-      // Navbar background on scroll
+      // ===== NAVBAR BACKGROUND ON SCROLL =====
       window.addEventListener("scroll", () => {
         const nav = document.querySelector("nav");
         if (window.scrollY > 100) {
           nav.style.background = "rgba(15, 23, 42, 0.95)";
+          nav.style.backdropFilter = "blur(25px)";
         } else {
           nav.style.background = "rgba(15, 23, 42, 0.9)";
+          nav.style.backdropFilter = "blur(20px)";
         }
       });
 
-      // Animate elements on scroll
+      // ===== ANIMATE ELEMENTS ON SCROLL =====
       const observerOptions = {
         threshold: 0.1,
         rootMargin: "0px 0px -50px 0px",
@@ -1431,102 +1640,297 @@
         });
       }, observerOptions);
 
+      // Observe all elements with animate-on-scroll class
       document.querySelectorAll(".animate-on-scroll").forEach((el) => {
         observer.observe(el);
       });
 
-      // Form submission
-      document
-        .querySelector(".contact-form")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
+      // ===== CONTACT FORM HANDLING =====
+      document.addEventListener("DOMContentLoaded", function () {
+        const contactForm = document.querySelector(".contact-form");
 
-          // Get form data
-          const formData = new FormData(this);
-          const name = formData.get("name");
-          const email = formData.get("email");
-          const project = formData.get("project");
+        if (contactForm) {
+          contactForm.addEventListener("submit", async function (e) {
+            e.preventDefault();
 
-          // Simple validation
-          if (!name || !email || !project) {
-            alert("Please fill in all fields");
-            return;
-          }
+            const submitButton = this.querySelector(".submit-button");
+            const originalText = submitButton.textContent;
 
-          // Simulate form submission
-          const button = this.querySelector(".cta-button");
-          const originalText = button.textContent;
+            // Form validation
+            const requiredFields = this.querySelectorAll(
+              "input[required], textarea[required]"
+            );
+            let isValid = true;
 
-          button.textContent = "Sending...";
-          button.style.opacity = "0.7";
-          button.disabled = true;
+            requiredFields.forEach((field) => {
+              if (!field.value.trim()) {
+                isValid = false;
+                field.style.borderColor = "#ef4444";
+              } else {
+                field.style.borderColor = "rgba(99, 102, 241, 0.3)";
+              }
+            });
 
+            if (!isValid) {
+              showNotification("Please fill in all required fields", "error");
+              return;
+            }
+
+            // Email validation
+            const emailField = this.querySelector('input[type="email"]');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailField.value)) {
+              showNotification("Please enter a valid email address", "error");
+              emailField.style.borderColor = "#ef4444";
+              return;
+            }
+
+            // Show loading state
+            submitButton.textContent = "Sending...";
+            submitButton.disabled = true;
+            submitButton.style.opacity = "0.7";
+
+            try {
+              const response = await fetch(contactForm.action, {
+                method: contactForm.method,
+                body: new FormData(contactForm),
+                headers: { Accept: "application/json" },
+              });
+
+              if (response.ok) {
+                // Success
+                submitButton.textContent = "Message Sent!";
+                submitButton.style.background =
+                  "linear-gradient(135deg, #22c55e 0%, #16a34a 100%)";
+
+                this.reset();
+                showNotification(
+                  "Thank you for reaching out! I'll get back to you soon.",
+                  "success"
+                );
+
+                setTimeout(() => {
+                  submitButton.textContent = originalText;
+                  submitButton.disabled = false;
+                  submitButton.style.opacity = "1";
+                  submitButton.style.background = "var(--gradient)";
+                }, 3000);
+              } else {
+                throw new Error("Formspree error");
+              }
+            } catch (error) {
+              console.error(error);
+              showNotification(
+                "Failed to send message. Please try again.",
+                "error"
+              );
+
+              submitButton.textContent = originalText;
+              submitButton.disabled = false;
+              submitButton.style.opacity = "1";
+            }
+          });
+        }
+      });
+
+      // ===== NOTIFICATION SYSTEM =====
+      function showNotification(message, type = "info") {
+        const notification = document.createElement("div");
+        notification.className = `notification ${type}`;
+        notification.textContent = message;
+
+        notification.style.cssText = `
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          background: ${
+            type === "success"
+              ? "#22c55e"
+              : type === "error"
+              ? "#ef4444"
+              : "#6366f1"
+          };
+          color: white;
+          padding: 1rem 1.5rem;
+          border-radius: 8px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          z-index: 10000;
+          opacity: 0;
+          transform: translateX(100%);
+          transition: all 0.3s ease;
+          font-family: inherit;
+        `;
+
+        document.body.appendChild(notification);
+
+        // Animate in
+        setTimeout(() => {
+          notification.style.opacity = "1";
+          notification.style.transform = "translateX(0)";
+        }, 100);
+
+        // Remove after 4 seconds
+        setTimeout(() => {
+          notification.style.opacity = "0";
+          notification.style.transform = "translateX(100%)";
           setTimeout(() => {
-            button.textContent = "Message Sent!";
-            button.style.background =
-              "linear-gradient(135deg, #10b981 0%, #059669 100%)";
+            if (notification.parentNode) {
+              notification.parentNode.removeChild(notification);
+            }
+          }, 300);
+        }, 4000);
+      }
 
-            // Reset form
-            this.reset();
+      // ===== MOBILE MENU TOGGLE =====
+      document.addEventListener("DOMContentLoaded", function () {
+        const mobileToggle = document.querySelector(".mobile-menu-toggle");
+        const navLinks = document.querySelector(".nav-links");
 
-            // Reset button after delay
-            setTimeout(() => {
-              button.textContent = originalText;
-              button.style.background = "var(--gradient)";
-              button.style.opacity = "1";
-              button.disabled = false;
-            }, 2000);
-
-            alert("Thank you for reaching out! I'll get back to you soon.");
-          }, 1500);
-        });
-
-      // Add some interactive hover effects
-      document
-        .querySelectorAll(".skill-card, .project-card, .achievement-card")
-        .forEach((card) => {
-          card.addEventListener("mouseenter", function () {
-            this.style.transform = "translateY(-5px)";
+        if (mobileToggle && navLinks) {
+          mobileToggle.addEventListener("click", function () {
+            navLinks.classList.toggle("active");
+            this.classList.toggle("active");
           });
 
-          card.addEventListener("mouseleave", function () {
-            this.style.transform = "translateY(0)";
+          // Close menu when clicking on a link
+          navLinks.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+              navLinks.classList.remove("active");
+              mobileToggle.classList.remove("active");
+            });
           });
-        });
+        }
+      });
 
-      // Parallax effect for floating elements
-      window.addEventListener("scroll", () => {
+      // ===== PARALLAX EFFECT FOR FLOATING ELEMENTS =====
+      let ticking = false;
+
+      function updateParallax() {
         const scrolled = window.pageYOffset;
         const parallax = document.querySelectorAll(".floating-element");
 
         parallax.forEach((element, index) => {
           const speed = 0.5 + index * 0.1;
-          element.style.transform = `translateY(${scrolled * speed}px) rotate(${
-            scrolled * 0.1
-          }deg)`;
+          const rotation = scrolled * 0.1;
+          element.style.transform = `translateY(${
+            scrolled * speed
+          }px) rotate(${rotation}deg)`;
         });
-      });
 
-      // Add typing effect for hero text
-      function typeWriter(text, element, speed = 50) {
+        ticking = false;
+      }
+
+      function requestTick() {
+        if (!ticking) {
+          requestAnimationFrame(updateParallax);
+          ticking = true;
+        }
+      }
+
+      window.addEventListener("scroll", requestTick);
+
+      // ===== TYPING EFFECT FOR HERO TEXT =====
+      function typeWriter(text, element, speed = 80) {
         let i = 0;
         element.innerHTML = "";
+        element.style.borderRight = "2px solid var(--primary)";
+
         function typing() {
           if (i < text.length) {
             element.innerHTML += text.charAt(i);
             i++;
             setTimeout(typing, speed);
+          } else {
+            // Remove cursor after typing is complete
+            setTimeout(() => {
+              element.style.borderRight = "none";
+            }, 1000);
           }
         }
         typing();
       }
 
-      // Initialize typing effect when page loads
+      // ===== INITIALIZE ON LOAD =====
       window.addEventListener("load", () => {
+        // Initialize typing effect
         const heroTitle = document.querySelector(".hero-content h1");
-        const originalText = heroTitle.textContent;
-        typeWriter(originalText, heroTitle, 100);
+        if (heroTitle) {
+          const originalText = heroTitle.textContent;
+          typeWriter(originalText, heroTitle, 100);
+        }
+
+        // Initialize animations
+        const animatedElements =
+          document.querySelectorAll(".animate-on-scroll");
+        animatedElements.forEach((el) => {
+          observer.observe(el);
+        });
       });
+
+      // ===== PERFORMANCE OPTIMIZATIONS =====
+      // Throttle scroll events for navbar
+      let navTicking = false;
+
+      function updateNavbar() {
+        const nav = document.querySelector("nav");
+        if (window.scrollY > 100) {
+          nav.style.background = "rgba(15, 23, 42, 0.95)";
+          nav.style.backdropFilter = "blur(25px)";
+        } else {
+          nav.style.background = "rgba(15, 23, 42, 0.9)";
+          nav.style.backdropFilter = "blur(20px)";
+        }
+        navTicking = false;
+      }
+
+      function requestNavTick() {
+        if (!navTicking) {
+          requestAnimationFrame(updateNavbar);
+          navTicking = true;
+        }
+      }
+
+      window.addEventListener("scroll", requestNavTick);
+
+      // ===== ACCESSIBILITY IMPROVEMENTS =====
+      // Keyboard navigation for interactive elements
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" && e.target.classList.contains("cta-button")) {
+          e.target.click();
+        }
+      });
+
+      // Focus management for forms
+      document.querySelectorAll("input, textarea, select").forEach((field) => {
+        field.addEventListener("focus", function () {
+          this.style.outline = "2px solid var(--primary)";
+          this.style.outlineOffset = "2px";
+        });
+
+        field.addEventListener("blur", function () {
+          this.style.outline = "none";
+        });
+      });
+
+      // ===== ERROR HANDLING =====
+      window.addEventListener("error", function (e) {
+        console.error("An error occurred:", e.error);
+      });
+
+      // Handle unhandled promise rejections
+      window.addEventListener("unhandledrejection", function (e) {
+        console.error("Unhandled promise rejection:", e.reason);
+      });
+
+      // ===== CONSOLE WELCOME MESSAGE =====
+      console.log(`
+      🚀 Welcome to Abdelrahman Mohammed's Portfolio!
+      📧 Email: AbdelrahmanMoahmmed27@gmail.com
+      🔗 GitHub: https://github.com/AbdoOsary0
+      💼 LinkedIn: https://www.linkedin.com/in/abdelrahman-mohammed-205281271
+
+      Built with ❤️ and clean code.
+      `);
     </script>
   </body>
 </html>
