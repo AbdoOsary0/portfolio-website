@@ -1282,3 +1282,298 @@ button {
     border-radius: 16px;
   }
 }
+
+/* About Cards Container */
+.about-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+/* Base Card Styles */
+.about-card {
+  background: var(--dark-light);
+  border-radius: 24px;
+  padding: 2.5rem;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  backdrop-filter: blur(10px);
+}
+
+.about-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(99, 102, 241, 0.08),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.about-card:hover::before {
+  left: 100%;
+}
+
+.about-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--primary);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3), 0 0 40px rgba(99, 102, 241, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Main Card (Professional Profile) */
+.about-card.main-card {
+  grid-column: span 2;
+  background: var(--dark-light);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.about-card.main-card:hover {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 50px rgba(99, 102, 241, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+/* Card Header */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.card-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--gradient);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  box-shadow: 0 8px 16px rgba(99, 102, 241, 0.3);
+  transition: all 0.3s ease;
+}
+
+.about-card:hover .card-icon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 12px 24px rgba(99, 102, 241, 0.4);
+}
+
+.card-header h3 {
+  color: var(--white);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+/* Card Content */
+.card-content {
+  position: relative;
+  z-index: 2;
+}
+
+.card-content p {
+  color: var(--gray);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Highlight Spans */
+.highlight-primary {
+  color: var(--primary);
+  font-weight: 600;
+  background: rgba(99, 102, 241, 0.1);
+  padding: 0.2rem 0.4rem;
+  border-radius: 6px;
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.highlight-secondary {
+  color: var(--secondary);
+  font-weight: 500;
+  background: rgba(236, 72, 153, 0.1);
+  padding: 0.2rem 0.4rem;
+  border-radius: 6px;
+  border: 1px solid rgba(236, 72, 153, 0.2);
+}
+
+/* Education Card Specific */
+.education-card-new {
+  background: var(--dark-light);
+  border-color: rgba(99, 102, 241, 0.2);
+}
+
+.education-card-new:hover {
+  border-color: var(--primary);
+  box-shadow: var(--glow);
+}
+
+.degree-info h4 {
+  color: var(--white);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.university {
+  color: var(--secondary);
+  font-weight: 500;
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+}
+
+.achievement-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 25px;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  color: #22c55e;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.badge-icon {
+  font-size: 1.1rem;
+}
+
+.duration {
+  color: var(--gray);
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
+/* Mission Card */
+.mission-card {
+  background: var(--dark-light);
+  border-color: rgba(99, 102, 241, 0.2);
+}
+
+.mission-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--glow);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .about-cards-container {
+    grid-template-columns: 1fr;
+  }
+
+  .about-card.main-card {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-cards-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .about-card {
+    padding: 2rem;
+    border-radius: 20px;
+    margin: 0 0.5rem;
+  }
+
+  .card-header h3 {
+    font-size: 1.2rem;
+  }
+
+  .card-content p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-card {
+    padding: 1.5rem;
+    border-radius: 16px;
+    margin: 0;
+  }
+
+  .card-header {
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+  }
+
+  .card-header h3 {
+    font-size: 1.1rem;
+  }
+
+  .card-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .degree-info h4 {
+    font-size: 1.1rem;
+  }
+
+  .university {
+    font-size: 1rem;
+  }
+
+  .achievement-badge {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+/* Animation Enhancements */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.about-card.main-card::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent,
+    rgba(99, 102, 241, 0.1),
+    transparent,
+    rgba(236, 72, 153, 0.1),
+    transparent
+  );
+  animation: rotate 8s linear infinite;
+  z-index: 0;
+}
+
+.about-card.main-card .card-header,
+.about-card.main-card .card-content {
+  position: relative;
+  z-index: 2;
+}
