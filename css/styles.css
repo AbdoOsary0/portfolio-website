@@ -200,7 +200,7 @@ nav {
   position: relative;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-  animation: float 6s ease-in-out infinite;
+  /* animation: float 6s ease-in-out infinite; */
 }
 
 .hero-image-container::before {
@@ -974,7 +974,7 @@ footer {
     display: flex;
     flex-direction: column;
     text-align: center;
-    padding: 6rem 1rem 3rem;
+    padding: 15rem 1rem 3rem;
     min-height: auto;
     gap: 2rem;
   }
